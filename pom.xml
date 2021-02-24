@@ -14,6 +14,17 @@
     <github.maven.repository>file:///var/jenkins_home/maven-repository/</github.maven.repository>
   </properties>
   
+  <pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>com.jayway.maven.plugins.android.generation2</groupId>
+        <artifactId>android-maven-plugin</artifactId>
+        <version>3.9.0-rc.2</version>
+        <extensions>true</extensions>
+      </plugin>
+    </plugins>
+  </pluginManagement>
+  
   <distributionManagement>
         <repository>
             <id>maven-repository</id>

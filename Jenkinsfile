@@ -3,23 +3,27 @@ pipeline {
 
     stages {
         stage("Checkout"){
+steps {
     checkout scm
+}
   }
 
   stage ("Prepare"){
+steps {
     sh 'chmod +x ./gradlew'
+}
   }
 
     stage("Build"){
+steps {
     if (params.BUILD_CONFIG == 'release') {
       sh './gradlew clean assembleRelease' // builds app/build/outputs/apk/app-release.apk file
     } else {
       sh './gradlew clean assembleDebug' // builds app/build/outputs/apk/app-debug.apk
     }
+}
   }
 
-  def keyStoreId = params.BUILD_CREDENTIAL_ID
-  def keyAlias = params.BUILD_CREDENTIAL_ALIAS ?: ''
 // Uncomment this stage if your keystore is external to your source code.  
 //  stage("Sign"){
 //    if (params.BUILD_CONFIG == 'release') {

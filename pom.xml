@@ -9,7 +9,16 @@
   <properties>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <github.maven.repository>file:///var/jenkins_home/maven-repository/</github.maven.repository>
   </properties>
+  
+  <distributionManagement>
+        <repository>
+            <id>maven-repository</id>
+            <url>${github.maven.repository}</url>
+        </repository>
+    </distributionManagement>
  
   <dependencies>
     <dependency>
